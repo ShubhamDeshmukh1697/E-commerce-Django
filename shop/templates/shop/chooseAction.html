@@ -1,0 +1,120 @@
+{% extends 'shop/basic.html' %}
+{% block css %}
+
+body{
+    max-height:100vh;
+    
+}
+.action-h1{
+    margin:20px 0;
+    padding:15px;
+    background: #56ab2f;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #a8e063, #56ab2f);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #a8e063, #56ab2f); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+h1{
+    font-size: 30px;
+    text-align: center;
+    color:white;
+}
+
+.main{
+    position:relative;
+    border-radius: 10px;
+    box-shadow: 4px 4px 6px 0 rgba(116,125,136,0.3),
+                -4px -4px 12px 0 rgba(116,125,136,0.3);
+    height:450px;
+    max-width:630px;
+    margin-top:35px;
+
+}
+.submit-btn{
+    display:inline-block;
+    border-radius:5px;
+    width:110px;
+    height:40px;
+    background: #56ab2f;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #a8e063, #56ab2f);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #a8e063, #56ab2f); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    color:white;
+    border:none;
+}
+label{
+    display: inline-block;
+    margin:20px;
+    font-weight:900;
+}
+.form-control1{
+    margin-bottom:20px;
+    border: none;
+}
+.option-group{
+    display:inline-block;
+    align-items:center;
+    width:292px;
+}
+.add-image{
+    position:absolute;
+    width:260px;
+    top:84px;
+    right:45px;
+}
+img{
+    
+    width:292px;
+    height:316px;
+}
+.table-container{
+    background: #56ab2f;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #a8e063, #56ab2f);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #a8e063, #56ab2f); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    color:white;
+    height:600px;
+}
+table{
+    height: 84%;
+    width: 80%;
+    outline-color: red;
+    outline-style: solid;
+}
+{% endblock %}
+{% block title%} Choose Action {% endblock %}
+{% block body %}
+{% load static %}
+
+<div class="main container">
+    <div class="action-h1">
+        <h1>Choose Action You want to Perform</h1>
+    </div> 
+    
+    <div class="option-group">
+        <div class="form-control1">
+            <label>Add Product</label>
+            <input type="submit" class="submit-btn" value="Add">
+        </div>
+        <div class="form-control1">
+            <label>View Products</label>
+            <input type="submit" class="submit-btn" value="View">
+        </div>
+        <div class="form-control1">
+            <label>Delete Product</label>
+            <input type="submit" class="submit-btn" value="Delete">
+        </div>
+        <div class="form-control1">
+            <label>Update Product</label>
+            <input type="submit" class="submit-btn" value="Update">
+        </div>
+    </div>
+    <div class="add-image">
+        <img src="{% static 'shop/millie.jpg' %}" alt="" >
+    </div>
+    
+</div>
+<hr style="opacity: 1;margin-top:50px;">
+{% comment %} <div class="table-container" style="position:relative; margin-top:0px;">
+    <div class="container" style="width:800px;height:400px;background:white;position:absolute;top:82px;left:500px;border-radius:30px;display:flex;
+    justify-content:center;align-items:center;">
+        <table></table>
+    </div>
+
+</div> {% endcomment %}
+
+{% endblock %}
