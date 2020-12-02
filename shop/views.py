@@ -82,6 +82,7 @@ def search(request):
     return render(request,'shop/search.html')
 
 def productView(request,myid):
+    # my github comment
     #fetch the product using the id
     product=Product.objects.filter(id=myid)
     
