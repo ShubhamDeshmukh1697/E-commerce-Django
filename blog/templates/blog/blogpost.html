@@ -24,7 +24,7 @@
             
             <div class="blog-post">
                 <h2 class="blog-post-title">{{post.head0}}</h2>
-                <p class="blog-post-meta">{{post.pub_date}} <a href="#">CodeWithHarry</a></p>  
+                <p class="blog-post-meta" style="color:blue;">{{post.pub_date}}</p>  
                 <p>{{post.chead0}}</p>
                 <h2>{{post.head1}}</h2>
                 <p> {{post.chead1}}</p>
@@ -47,5 +47,37 @@
             </div>
         </aside><!-- /.blog-sidebar -->
     </div>
+   <hr style=> 
+    <div class="row justify-content-between my-5" >
+        <div class="col-md-5 my-3">
+          <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <div class="col p-4 d-flex flex-column position-static">
+              <strong class="d-inline-block mb-2 text-primary">{{prev.title}}</strong>
+              <div class="mb-1 text-muted"></div>
+              <p class="card-text mb-auto">{{prev.chead1|slice:"0:95"}}...</p>
+              <a href="/blog/blogpost/{{prev.post_id}}" class="btn btn-primary my-1">Previous</a>
+            </div>
+            <div class="col-auto d-none d-lg-block">
+              <img class="bd-placeholder-img" width="200" height="250" src="/media/{{prev.thumbnail}}"
+                aria-label="Placeholder: Thumbnail" />
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5 my-3">
+          <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <div class="col p-4 d-flex flex-column position-static">
+              <strong class="d-inline-block mb-2 text-primary">{{next.title}}</strong>
+              <div class="mb-1 text-muted"></div>
+              <p class="card-text mb-auto">{{next.chead1|slice:"0:95"}}...</p>
+              <a href="/blog/blogpost/{{next.post_id}}" class="btn btn-primary my-1">Next</a>
+            </div>
+            <div class="col-auto d-none d-lg-block">
+              <img class="bd-placeholder-img" width="200" height="250" src="/media/{{next.thumbnail}}"
+                aria-label="Placeholder: Thumbnail" />
+            </div>
+          </div>
+        </div>
+    </div>
 </div>
+
 {%endblock%}

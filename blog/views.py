@@ -9,7 +9,21 @@ def index(request):
     return render(request,'blog/index.html',params)
 
 def blogPost(request,blogid):
-    post=Blogpost.objects.filter(post_id=blogid)
+    params={}
+    allPosts=Blogpost.objects.all()
 
+    for i in allPosts:
+        if i.post_id==blogid:
+            params['post']=i
+        else:
+            if(i.post_id==(blogid+1)):
+                params['next']=i
+            elif(i.post_id==(blogid-1)):
+                params['prev']=i
+            else:
+                pass
+    
+    print(params)
+    # post=Blogpost.objects.filter(post_id=blogid)
 
-    return render(request,'blog/blogpost.html',{'post':post[0]})
+    return render(request,'blog/blogpost.html',params)
