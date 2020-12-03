@@ -6,6 +6,7 @@ import json
 # Create your views here.
 
 def index(request):
+#     comment by akash
     allProds = []
     catprods = Product.objects.values('category', 'id')
     cats = {item['category'] for item in catprods}
