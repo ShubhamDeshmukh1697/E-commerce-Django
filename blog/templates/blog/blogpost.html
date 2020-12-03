@@ -16,6 +16,7 @@
         </div>
       </div>
     </div>
+    <div class="fb-like my-0" data-href="http://127.0.0.1:8000/blog/blogpost/{{post.post_id}}" data-width="" data-layout="standard" data-action="like" data-size="large" data-share="true"></div>
 </div>
 
 <div class="container">
@@ -30,6 +31,12 @@
                 <p> {{post.chead1}}</p>
                 <h2>{{post.head2}}</h2>
                 <p>{{post.chead2}}</p>
+
+                <div class="fb-comments" data-href="http://127.0.0.1:8000/blog/blogpost/{{post.post_id}}" data-colorscheme="dark" data-numposts="1" data-width=""></div>
+                
+
+
+            
             </div><!-- /.blog-post -->
         </div><!-- /.blog-main -->
         <aside class="col-md-4 blog-sidebar">
@@ -48,7 +55,8 @@
         </aside><!-- /.blog-sidebar -->
     </div>
    <hr style=> 
-    <div class="row justify-content-between my-5" >
+    <div class="container">
+        <div class="row justify-content-between my-5" >
         <div class="col-md-5 my-3">
           <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
             <div class="col p-4 d-flex flex-column position-static">
@@ -77,6 +85,7 @@
             </div>
           </div>
         </div>
+    </div>
     </div>
 </div>
 
