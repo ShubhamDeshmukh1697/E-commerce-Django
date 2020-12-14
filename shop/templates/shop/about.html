@@ -1,6 +1,11 @@
 {% extends 'shop/basic.html' %}
 
 {% block title%} About Us{% endblock %}
+{% block css %}
+body{
+  background-color:pink;
+}
+{% endblock %}
 {% block body %}
 {% load static %}
 
@@ -46,4 +51,17 @@ In August 2018, U.S.-based retail chain Walmart acquired a 77% controlling stake
 
 </main>
 
+
+
+
+<div class="container d-flex  my-5" style="background-color:grey; border:2px solid black;">
+  <div class="row align-items-center justify-content-center ">
+    <div class="col-md-2"><img src="{% static 'shop/facebook.svg' %}" style="width:100px;max-height:50px;margin-bottom:4px;" alt=""></div>
+    <div class="col-md-5">My Awesome Cart Pvt Ltd. is an Indian electronic commerce company based in Bengaluru, India. Founded by
+     Sachin Bansal and Binny Bansal in 2007, the company initially focused on book salesThe service cocommerce company based in Bengaluru, India. Founded by
+     Sachin Bansal and Binny Bansal in 2007, the company initially focused on book salesThe service competes primarily with Amazon' s Indian text here</div>
+
+  </div>
+  
+</div>
 {% endblock %}

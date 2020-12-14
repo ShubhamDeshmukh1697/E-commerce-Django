@@ -1,8 +1,8 @@
 {% extends 'blog/basic.html' %}
 {% block body %}
 
-<div class="container my-4">
-    <div class="col-md-6 my-5">
+<div class="container my-4 d-flex justify-content-center">
+    <div class="col-md-8 my-5">
       <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
         <div class="col p-4 d-flex flex-column position-static">
           <strong class="d-inline-block mb-2 text-primary">{{post.title}}</strong>
@@ -11,13 +11,12 @@
           <p class="card-text mb-auto">{{post.chead1}}</p>
           <a href="/blog/blogpost/{{post.post_id}}" class="stretched-link">Continue reading</a>
         </div>
-        <div class="col-auto d-none d-lg-block">
-          <img class="bd-placeholder-img" width="200" height="250" src="/media/{{post.thumbnail}}" aria-label="Placeholder: Thumbnail"/>
+        <div class="col-auto d-none d-lg-block d-flex justify-content-center">
+          <img class="bd-placeholder-img img-fluid h-auto" style= max-width="100%" height="250" src="/media/{{post.thumbnail}}" aria-label="Placeholder: Thumbnail"/>
         </div>
       </div>
     </div>
-    <div class="fb-like my-0" data-href="http://127.0.0.1:8000/blog/blogpost/{{post.post_id}}" data-width="" data-layout="standard" data-action="like" data-size="large" data-share="true"></div>
-</div>
+    </div>
 
 <div class="container">
     <div class="row mt-4">
@@ -30,13 +29,10 @@
                 <h2>{{post.head1}}</h2>
                 <p> {{post.chead1}}</p>
                 <h2>{{post.head2}}</h2>
-                <p>{{post.chead2}}</p>
-
-                <div class="fb-comments" data-href="http://127.0.0.1:8000/blog/blogpost/{{post.post_id}}" data-colorscheme="dark" data-numposts="1" data-width=""></div>
-                
+                <p>{{post.chead2}}</p>             
 
 
-            
+
             </div><!-- /.blog-post -->
         </div><!-- /.blog-main -->
         <aside class="col-md-4 blog-sidebar">
@@ -54,38 +50,22 @@
             </div>
         </aside><!-- /.blog-sidebar -->
     </div>
-   <hr style=> 
-    <div class="container">
-        <div class="row justify-content-between my-5" >
-        <div class="col-md-5 my-3">
-          <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-            <div class="col p-4 d-flex flex-column position-static">
-              <strong class="d-inline-block mb-2 text-primary">{{prev.title}}</strong>
-              <div class="mb-1 text-muted"></div>
-              <p class="card-text mb-auto">{{prev.chead1|slice:"0:95"}}...</p>
-              <a href="/blog/blogpost/{{prev.post_id}}" class="btn btn-primary my-1">Previous</a>
-            </div>
-            <div class="col-auto d-none d-lg-block">
-              <img class="bd-placeholder-img" width="200" height="250" src="/media/{{prev.thumbnail}}"
-                aria-label="Placeholder: Thumbnail" />
-            </div>
-          </div>
-        </div>
-        <div class="col-md-5 my-3">
-          <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-            <div class="col p-4 d-flex flex-column position-static">
-              <strong class="d-inline-block mb-2 text-primary">{{next.title}}</strong>
-              <div class="mb-1 text-muted"></div>
-              <p class="card-text mb-auto">{{next.chead1|slice:"0:95"}}...</p>
-              <a href="/blog/blogpost/{{next.post_id}}" class="btn btn-primary my-1">Next</a>
-            </div>
-            <div class="col-auto d-none d-lg-block">
-              <img class="bd-placeholder-img" width="200" height="250" src="/media/{{next.thumbnail}}"
-                aria-label="Placeholder: Thumbnail" />
-            </div>
-          </div>
-        </div>
-    </div>
+   <hr> 
+    <div class="container mb-3 d-flex justify-content-between fixed-bottom">
+    
+        {% if next.post_id and prev.post_id %}
+        <a class="btn btn-danger" style="width:100px;"href="/blog/blogpost/{{prev.post_id}}" >Previous</a>
+        <a class="btn btn-danger" style="width:100px;"href="/blog/blogpost/{{next.post_id}}" >Next</a>
+        {% elif next.post_id %}
+
+        <a class="btn btn-secondary" style="width:100px;" disabled>Previous</a>
+        <a class="btn bg-danger" style="width:100px;" href="/blog/blogpost/{{next.post_id}}">Next</a>
+        {% else %}
+
+        <a class="btn btn-danger" style="width:100px;" href="/blog/blogpost/{{prev.post_id}}">Previous</a>
+        <a class="btn btn-secondary" style="width:100px;" disabled>Next</a>
+        {% endif %}
+        
     </div>
 </div>
 

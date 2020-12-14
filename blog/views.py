@@ -6,6 +6,7 @@ def index(request):
     # show all blog posts here and show selected in blogPost page
     blogs=Blogpost.objects.all()
     params={'blogs':blogs}
+    print("index dict",params)
     return render(request,'blog/index.html',params)
 
 def blogPost(request,blogid):
@@ -17,13 +18,13 @@ def blogPost(request,blogid):
             params['post']=i
         else:
             if(i.post_id==(blogid+1)):
-                params['next']=i
+                params['next']=Blogpost.objects.get(post_id=blogid+1)
             elif(i.post_id==(blogid-1)):
-                params['prev']=i
+                params['prev']=Blogpost.objects.get(post_id=blogid-1)
             else:
                 pass
     
-    print(params)
+    print("blogpost dict",params)
     # post=Blogpost.objects.filter(post_id=blogid)
 
     return render(request,'blog/blogpost.html',params)
